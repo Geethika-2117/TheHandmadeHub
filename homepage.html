@@ -1,0 +1,448 @@
+<!-- Project-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Handmade Hub</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    
+    </head>
+
+    <body>
+        <section id="header">
+           <div class="logo">
+            <i class="fas fa-hand-paper icon"></i>
+            <pre>The 
+Handmade
+Hub</pre>
+        </div>    
+            <ul id="navbar">
+                <li><a class="active"href="index.html">Home</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </div>
+        </section>
+
+        <section id="hero">
+            <h4>Eco-friendly Offer</h4>
+            <h2>Explore Sustainable Products</h2>
+            <h1>Handcrafted & Earth-Friendly</h1>
+            <p>Where Sustainability Meets Luxury. Handmade Goods That Last Beyond Trends.</p>
+            <button onclick="window.location.href=''">Shop Now</button>
+        </section>
+
+        <section id="feature" class="section-p1">
+            <div class="fe-box">
+                <img src="./img/freeshipping.avif" alt="Free Shipping"><br><br><br><br>
+                <h6>Free Shipping</h6>
+            </div>
+            <div class="fe-box">
+                <img src="./img/onlineorder.avif" alt="Online Order">
+                <h6>Online Order</h6>
+            </div>
+            <div class="fe-box">
+                <img src="./img/review.avif" alt="Review">
+                <h6>Review</h6>
+            </div>
+        </section>
+
+        <section id="product1" class="section-p1">
+            <h2>Best Sellers</h2>
+            <p>The Favorites Everyone's Talking About</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/strawhat.jpg" alt="Straw Hats">
+                    </a>
+                    <div class="des">
+                        <span>CraftedWithCare</span>
+                        <h5>Handwoven Straw Hats</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹899</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'handwoven Straw Hats', 899, './img/strawhat.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/organicsoap.jpg" alt="Organic soap bar">
+                    </a>
+                    <div class="des">
+                        <span>Ecocrafted</span>
+                        <h5>Handmade Organic Soap Bars </h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹149</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Handmade Organic Soap Bars', 149, './img/organicsoap.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/christmas.jpg" alt="Chritmas Ornaments">
+                    </a>
+                    <div class="des">
+                        <span>GreenStitch</span>
+                        <h5> Eco-Friendly Christmas Ornaments</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹349</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Eco-Friendly Christmas Ornaments', 349, './img/christmas.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/totebag.webp" alt="Tote Bag">
+                    </a>
+                    <div class="des">
+                        <span>PurelyHandmade</span>
+                        <h5>Handmade Jute Tote Bags</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹349</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Handmade Jute Tote Bags', 349, './img/totebag.webp')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/cuttingboard.jpg" alt="Cutting Board">
+                    </a>
+                    <div class="des">
+                        <span>EarthTales</span>
+                        <h5>Wooden Spoons and Cutting Boards</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹999</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wooden Spoons and Cutting Boards', 999, './img/cuttingboard.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/paperjournals.jpg" alt="Paper Journals">
+                    </a>
+                    <div class="des">
+                        <span>Nature's Artisan</span>
+                        <h5>Paper Journals</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹249</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Paper Journals', 249, './img/paperjournals.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/babytoys.jpg" alt="Baby toys">
+                    </a>
+                    <div class="des">
+                        <span>Sustainable Threads</span>
+                        <h5> Wooden Baby Toys</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹799</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wooden Baby Toys', 799, './img/babytoys.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/jewelry.jpg" alt="Jewelry">
+                    </a>
+                    <div class="des">
+                        <span>Leaf & Loom</span>
+                        <h5>Upcycled Jewelry</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Upcycled Jewelry', 1499, './img/jewelry.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="banner" class="section-m1">
+            <h4>Seasonal Sale</h4>
+            <h2>Up to <span>50% off</span> on Eco Accessories</h2>
+            <button class="normal">Explore more</button>
+        </section>
+
+        <section id="product1" class="section-p1">
+            <h2>New Arrivals</h2>
+            <p>Fresh Finds, Just for You!</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/lipbalm.jpg" alt="iLip Balm">
+                    </a>
+                    <div class="des">
+                        <span>Soothe & Balm</span>
+                        <h5>Handmade Lip Balms</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹249</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Handmade Lip Balms', 249, './img/lipbalm.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/claypottery.jpg" alt="Clay Pottery">
+                    </a>
+                    <div class="des">
+                        <span>PureLeaf Creations</span>
+                        <h5>Clay Pottery</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹599</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Clay Pottery', 599, './img/claypottery.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/woolscarves.jpg" alt="Wool Scarves">
+                    </a>
+                    <div class="des">
+                        <span>Handmade Harmony</span>
+                        <h5>Wool Scarves</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wool Scarves', 499, './img/woolscarves.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/beeswax.jpg" alt="Beeswax wraps">
+                    </a>
+                    <div class="des">
+                        <span>WildRoots Creations</span>
+                        <h5>Beeswax Wraps</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹349</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Beeswax Wraps', 349, './img/beeswax.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/giftbaskets.jpg" alt="Gift Baskets">
+                    </a>
+                    <div class="des">
+                        <span>VerdantCraft</span>
+                        <h5>Gift Baskets</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹799</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Gift Baskets', 799, './img/giftbaskets.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/easter.jpg" alt="Easter Baskets">
+                    </a>
+                    <div class="des">
+                        <span>EcoSoul Creations</span>
+                        <h5>Easter Baskets</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹899</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Easter Baskets', 899, './img/easter.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/bamboo.jpg" alt="Bamboo Clothing">
+                    </a>
+                    <div class="des">
+                        <span>Bamboo Bloom</span>
+                        <h5>Bamboo Clothing</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹849</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Bamboo Clothing', 89, './img/bamboo.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="">
+                    <img src="./img/seedpaper.jpg" alt="Seed Paper Cards">
+                    </a>
+                    <div class="des">
+                        <span>EarthlyGoods</span>
+                        <h5>Seed Paper Cards</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹49</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Seed Paper Cards', 49, './img/seedpaper.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sm-banner" class="section-p1">
+            <div class="banner-box">
+                <h4>Discover Our Latest Eco-Friendly Creations!</h4>
+                <h2>Crafted for a greener world.</h2>
+                <span>Handcrafted with love and designed to make a positive impact on the planet.</span>
+                <button class="white">Learn More</button>
+            </div>
+            <div class="banner-box banner-box2">
+                <h4>Limited time offers</h4>
+                <h2>Flash Sale: Up to 30% Off!</h2>
+                <span>Shop Now and Save Big on Sustainable Finds</span>
+                <button class="white">Collection</button>
+            </div>
+        </section>
+        <section id="banner3">
+            <div class="banner-box">
+                <h2>Gifting Made</h2>
+                <h2>Easy</h2>
+                <h3>Handmade Gifts</h3>
+                <h3>for Every Occasion</h3>
+            </div>
+            <div class="banner-box banner-box2">
+                <h2>Eco-Friendly Living</h2>
+                <h3>Sustainable Living Starts</h3>
+                <h3>with Handmade Goods</h3>
+            </div>
+            <div class="banner-box banner-box3">
+                <h2>Pre-Orders</h2>
+                <h3>Secure Your Handmade Treasure</h3>
+                <h3>Before It's Gone!</h3>
+            </div>
+        </section>
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up for our eco-friendly newsletter</h4>
+                <p>Get E-mail updates about our <span>latest offers and collections.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong>Amrita Vishwa Vidyapeetham</p>
+                <p><strong>Phone:</strong>9876543210</p>
+                <p><strong>Hours:</strong>10am to 18pm</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="signin.html">Sign in</a>
+                <a href="tandc.html">Terms and conditions</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From apple store or Google play</p>
+                <div class="row">
+                    <img src="./img/gplay.png" width="150" height="40" alt="img1">
+                    <img src="./img/appstore.png" width="150" height="40" alt="img2">
+                </div>
+                <p>Secure Payment Gateway</p>
+                <img src="./img/payment.jpg" width="350" height="60" alt="payment">
+            </div>
+
+            <div class="copyright" style="padding-left: 80px;">
+                <p>Copyright.All rights reserved.</p>
+            </div>
+        </footer>
+
+    </body>
+</html>

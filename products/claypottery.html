@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/claypottery.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Clay Pottery</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Our Clay Pottery is expertly handcrafted, bringing warmth and authenticity to your home. Made from natural clay, each piece showcases unique textures and earthy charm. Perfect for décor, dining, or gifting, these durable and eco-friendly creations celebrate tradition and artistry in every detail.</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Handcrafted Excellence:</span>Each piece is uniquely made by skilled artisans.</li>
+                <li><span>Natural & Eco-Friendly:</span>Made from high-quality, sustainable clay.</li>
+                <li><span>Durable & Long-Lasting:</span>Sturdy construction for everyday use.</li>
+                <li><span>Timeless Aesthetic :</span>Earthy tones and textures add rustic charm.</li>
+                <li><span>Versatile Use:</span>Ideal for home décor, dining, and gifting.</li>
+                <li><span>Heat & Water Resistant:</span>Suitable for serving food and holding liquids.</li>
+                <li><span>Artisan Touch:</span>No two pieces are exactly alike, making each one special.</li>
+            </ul>
+            <h4 class="product-price">Price:₹599</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Clay Pottery",
+                price: 599,
+                quantity: 1,
+                image: "../img/claypottery.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Clay Pottery",
+        price: 599,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/claypottery.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

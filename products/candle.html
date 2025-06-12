@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/candle.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Coconut wax candles</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Coconut Wax Candles are eco-friendly, clean-burning candles made from natural coconut wax. They provide a longer, even burn with minimal soot and smoke. Known for their excellent scent throw, these candles enhance any space with a calming aroma. Biodegradable and toxin-free, they are a sustainable alternative to traditional paraffin candles!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Eco-Friendly & Sustainable :</span>Made from natural, biodegradable coconut wax.</li>
+                <li><span>Clean-Burning :</span> Produces minimal soot and smoke for a healthier environment.</li>
+                <li><span>Longer Burn Time:</span>Burns slower and more evenly than paraffin or soy candles.</li>
+                <li><span>Strong Scent Throw :</span>Enhances spaces with a rich, lasting fragrance.</li>
+                <li><span>Non-Toxic & Chemical-Free:</span>Free from harmful additives, making it safe for indoor use.</li>
+                <li><span>Smooth & Creamy Texture :</span> Provides a luxurious, aesthetically pleasing finish.</li>
+                <li><span>Better Heat Resistance :</span>Melts at a higher temperature, reducing tunneling and waste.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹199 </h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural White">Natural White</option>
+                        <option value=" Pastels"> Pastels</option>
+                        <option value="Earthy Tones ">Earthy Tones </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Coconut wax candles",
+                price: 199,
+                quantity: 1,
+                image: "../img/candle.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Coconut wax candles",
+        price: 199,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/candle.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

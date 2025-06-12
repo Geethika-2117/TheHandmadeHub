@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body style="background-color: #dbece7;">
+
+    <!-- Sign In Page -->
+    <div id="sign-in-container">
+        <div class="sign-in-form">
+            <h1>Create Your Account</h1>
+
+            <form action="#" onsubmit="event.preventDefault(); window.location.href='index.html';" method="POST">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Create a password">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                </div>
+
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="tandc.html">Terms and Conditions</a></label>
+                </div>
+
+                <!-- Sign Up Button -->
+                <button type="submit" class="normal">Sign Up</button>
+
+                <p>Already have an account? <a href="login.html" class="active">Log In</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

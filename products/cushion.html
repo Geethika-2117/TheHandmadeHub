@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/cushion.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Decorative Cushion Covers</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Decorative Cushion Covers add style and comfort to your living space with vibrant designs, rich textures, and quality fabric. Perfect for refreshing sofas, beds, or chairs with a cozy and personalized touch!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Premium Fabric:</span>Made from cotton, linen, velvet, or blends for comfort and durability.</li>
+                <li><span>Stylish Designs:</span>Available in modern, boho, traditional, and minimalist patterns. </li>
+                <li><span>Easy to Use:</span>Concealed zipper or envelope closure for a smooth, secure fit. </li>
+                <li><span>Machine Washable:</span>Easy to clean and maintain without fading.</li>
+                <li><span>Size Variety:</span>Comes in multiple sizes like 16x16, 18x18, 20x20 inches, etc.</li>
+                <li><span>Mix & Match:</span>Ideal for layering and creating decorative combinations.</li>
+                <li><span>Eco-Friendly Options:</span>Available in sustainable, handmade, or upcycled fabric versions.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹149 </h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value=" Pastel Shades">Pastel Shades</option>
+                        <option value=" Vibrant">Vibrant</option>
+                        <option value="Textured Styles">Textured Styles</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Decorative Cushion Covers",
+                price: 149,
+                quantity: 1,
+                image: "../img/cushion.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Decorative Cushion Covers",
+        price: 149,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/cushion.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

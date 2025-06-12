@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/strawhat.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Handwoven Straw Hats</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">This elegantly handcrafted *Handwoven Straw Hat* is the perfect blend of style and functionality. Made from high-quality natural straw, this lightweight and breathable hat ensures comfort while offering excellent sun protection. Its beautifully woven design adds a touch of rustic charm, making it a versatile accessory for any occasion. Whether you're relaxing at the beach, strolling through the countryside, or enjoying an outdoor event, this timeless straw hat is a stylish and eco-friendly choice.</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Handwoven Craftsmanship:</span>Expertly crafted by skilled artisans for a unique and authentic look./li>
+                <li><span>Premium Natural Straw:</span> Made from eco-friendly, breathable, and lightweight materials.</li>
+                <li><span>Sun Protection :</span> Wide-brimmed design helps shield against harmful UV rays.</li>
+                <li><span>Versatile & Stylish:</span> Perfect for beach trips, vacations, outdoor activities, and casual wear.</li>
+                <li><span>Unisex & Adjustable:</span>Available in various sizes and styles to suit all preferences.</li>
+                <li><span>Durable & Long-Lasting:</span> High-quality weaving ensures the hat maintains its shape over time.</li>
+                <li><span>Travel-Friendly:</span>Lightweight and easy to carry, making it ideal for packing on the go.</li>
+            </ul>
+            <h4 class="product-price">Price:₹899</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural Straw Shades">Natural Straw Shades</option>
+                        <option value="Dyed Straw Colors">Dyed Straw Colors</option>
+                        <option value="Designer Hats">Designer Hats</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Handwoven Straw Hats",
+                price: 899,
+                quantity: 1,
+                image: "../img/strawhat.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Handwoven Straw Hats",
+        price: 899,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/strawhat.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

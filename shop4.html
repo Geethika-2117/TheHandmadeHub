@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Handmade Hub</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <div class="logo">
+            <i class="fas fa-hand-paper icon"></i>
+            <pre>The 
+Handmade
+Hub</pre>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-bag-shopping"></i></a></li>
+            </ul>
+        </div>
+        </section>
+        <section id="page-header">
+           
+            <h2 >#stayhome</h2>
+            
+            <p>Save more with coupons and up to 70% off</p>
+            
+        </section>
+
+        
+
+        <section id="product1" class="section-p1">
+            
+            <div class="pro-container">
+            
+
+                <div class="pro">
+                    <a href="./products/dinnerset.html">
+                    <img src="./img/dinnerset.jpg" alt="dinner set">
+                    </a>
+                    <div class="des">
+                        <span>EarthlyGoods</span>
+                        <h5>Disposable Dinner Set</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹249</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Disposable Dinner Set', 249, './img/dinnerset.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/seedpaper.html">
+                    <img src="./img/seedpaper.jpg" alt="seed paper cards">
+                    </a>
+                    <div class="des">
+                        <span>EarthlyGoods</span>
+                        <h5>Seed Paper Cards</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹49</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Seed Paper Cards', 49, './img/seedpaper.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/planner.html">
+                    <img src="./img/planner.jpg" alt="planner">
+                    </a>
+                    <div class="des">
+                        <span>EarthlyGoods</span>
+                        <h5>Recycled Paper Planners</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹199</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Recycled Paper Planners', 199, './img/planner.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/wrapping.html">
+                    <img src="./img/wrapping.jpg" alt="Brown Kraft Paper Wrapping">
+                    </a>
+                    <div class="des">
+                        <span>EarthlyGoods</span>
+                        <h5>Brown Kraft Paper Wrapping</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹99</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Brown Kraft Paper Wrapping', 99, './img/wrapping.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/toothbrush.html">
+                    <img src="./img/toothbrush.jpg" alt="Bamboo Toothbrushes">
+                    </a>
+                    <div class="des">
+                        <span>Bamboo Bloom</span>
+                        <h5>Bamboo Toothbrushes</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹49</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Bamboo Toothbrushes', 49, './img/toothbrush.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/bamboo.html">
+                    <img src="./img/bamboo.jpg" alt="bamboo clothing">
+                    </a>
+                    <div class="des">
+                        <span>Bamboo Bloom</span>
+                        <h5>Bamboo Clothing</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹849</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Bamboo Clothing', 849, './img/bamboo.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/puzzles.html">
+                    <img src="./img/puzzles.jpg" alt="bamboo puzzles">
+                    </a>
+                    <div class="des">
+                        <span>Bamboo Bloom</span>
+                        <h5>Bamboo Puzzles</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹299</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Bamboo Puzzles', 299, './img/puzzles.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/stool.html">
+                    <img src="./img/stools.jpg" alt="wooden stools">
+                    </a>
+                    <div class="des">
+                        <span>Bamboo Bloom</span>
+                        <h5>Wooden Stools</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹699</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wooden Stools', 699, './img/stools.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/penstand.html">
+                    <img src="./img/penstand.jpg" alt="pen stand">
+                    </a>
+                    <div class="des">
+                        <span>EcoSoul Creations</span>
+                        <h5>Coconut Pen Stand</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹199</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Coconut Pen Stand', 199, './img/penstand.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/easter.html">
+                    <img src="./img/easter.jpg" alt="easter baskets">
+                    </a>
+                    <div class="des">
+                        <span>EcoSoul Creations</span>
+                        <h5>Easter Baskets</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹899</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Easter Baskets', 899, './img/easter.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/apron.html">
+                    <img src="./img/apron.jpg" alt="Aprons">
+                    </a>
+                    <div class="des">
+                        <span>EcoSoul Creations</span>
+                        <h5>Embroided Aprons</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹349</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Embroided Aprons', 349, './img/apron.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/plantpots.html">
+                    <img src="./img/plantpots.jpg" alt="Biodegradable Plant Pots">
+                    </a>
+                    <div class="des">
+                        <span>EcoSoul Creations</span>
+                        <h5>Biodegradable Plant Pots</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹99</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Biodegradable Plant Pots', 99, './img/plantpots.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/decoitem.html">
+                    <img src="./img/decoitem.jpg" alt="DIY decoration items">
+                    </a>
+                    <div class="des">
+                        <span>VerdantCraft</span>
+                        <h5>DIY decoration items</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹2499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'DIY decoration items', 2499, './img/decoitem.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/greetingcard.html">
+                    <img src="./img/greetingcard.jpg" alt="greeting card">
+                    </a>
+                    <div class="des">
+                        <span>VerdantCraft</span>
+                        <h5>Greeting Cards</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹99</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Greeting Cards', 99, './img/greetingcard.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/giftbaskets.html">
+                    <img src="./img/giftbaskets.jpg" alt="gift baskets">
+                    </a>
+                    <div class="des">
+                        <span>VerdantCraft</span>
+                        <h5>Gift Baskets</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹799</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Gift Baskets', 799, './img/giftbaskets.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/compostbins.html">
+                    <img src="./img/bins.jpg" alt="Compost Bins">
+                    </a>
+                    <div class="des">
+                        <span>VerdantCraft</span>
+                        <h5>Compost Bins</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹799</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Compost Bins', 799, './img/bins.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </section>
+        <section id="pagination" class="section-p1" >
+            <a href="shop.html">1</a>
+            <a href="shop2.html">2</a>
+            <a href="shop3.html">3</a>
+            <a href="#">4</a>
+        </section>
+
+        
+        
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up for our eco-friendly newsletter</h4>
+                <p>Get E-mail updates about our <span>latest offers and collections.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong>Amrita Vishwa Vidyapeetham</p>
+                <p><strong>Phone:</strong>9876543210</p>
+                <p><strong>Hours:</strong>10am to 18pm</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="cart.html">View cart</a>
+                <a href="tandc.html">Terms and conditions</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From apple store or Google play</p>
+                <div class="row">
+                    <img src="./img/gplay.png" width="150" height="40" alt="img1">
+                    <img src="./img/appstore.png" width="150" height="40" alt="img2">
+                </div>
+                <p>Secure Payment Gateway</p>
+                <img src="./img/payment.jpg" width="350" height="60" alt="payment">
+            </div>
+
+            <div class="copyright" style="padding-left: 80px;">
+                <p>Copyright.All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+function addToCart(event, name, price, image) {
+    event.preventDefault(); // ⛔ prevent scroll to top
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item.name === name);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Added to cart!");
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const countBadge = document.querySelector(".cart-count");
+    if (countBadge) {
+        countBadge.textContent = count;
+        countBadge.style.display = count > 0 ? "inline-block" : "none";
+    }
+}
+
+window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+
+    </body>
+</html>

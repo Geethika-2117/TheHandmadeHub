@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/chrochet.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Crochet</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Crochet is the art of handcrafting beautiful and intricate designs using soft yarn and a hook. From cozy blankets to stylish accessories, each piece is made with care, offering warmth, texture, and a timeless charm. Perfect for gifting or personal use!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Handcrafted & Unique:</span>Each piece is carefully made with love and skill.</li>
+                <li><span>Soft & Comfortable:</span>Uses high-quality yarn for a cozy feel.</li>
+                <li><span>Durable & Long-Lasting:</span>Sturdy stitching ensures longevity. </li>
+                <li><span>Versatile Designs :</span>Available in clothing, accessories, home décor, and more.</li>
+                <li><span>Eco-Friendly & Sustainable:</span>Made with natural or recycled yarn options.</li>
+                <li><span>Customizable :</span>Can be tailored in colors, patterns, and sizes.</li>
+                <li><span>Perfect for Gifting :</span> A thoughtful and handmade present for any occasion.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹499</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="Mini (4-6 inches)">Mini (4-6 inches)</option>
+                        <option value="Medium (12-24 inches) ">Medium (12-24 inches) </option>
+                        <option value="Large (3-6 feet)">Large (3-6 feet)</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Pastel Shades">Pastel Shades</option>
+                        <option value="Neutral Tones">Neutral Tones</option>
+                        <option value="Bold & Vibrant">Bold & Vibrant </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Crochet",
+                price: 499,
+                quantity: 1,
+                image: "../img/chrochet.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Crochet",
+        price: 499,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/chrochet.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

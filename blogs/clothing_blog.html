@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bamboo Clothing - The Handmade Hub</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            h2 {
+                font-size:30px;
+            }
+            .blog-container {
+                max-width: 1200px;
+                margin: 50px auto;
+                padding: 0 20px;
+            }
+            
+            .blog-title {
+                font-size: 32px;
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .blog-meta {
+                display: flex;
+                margin-bottom: 30px;
+                color: #606063;
+                font-size: 14px;
+            }
+            
+            .blog-meta span {
+                margin-right: 20px;
+            }
+            
+            .blog-meta i {
+                margin-right: 5px;
+            }
+            
+            .featured-image {
+                width: 50%;
+                height: 400px;
+                object-fit: cover;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                margin-left: 300px;
+            }
+            
+            .blog-content {
+                line-height: 1.8;
+                color: #1a1a1a;
+                margin-bottom: 40px;
+            }
+            
+            .blog-content p {
+                margin-bottom: 20px;
+            }
+            
+            .blog-content h2 {
+                margin: 30px 0 15px;
+                color: #088178;
+            }
+            
+            .blog-content img {
+                max-width: 100%;
+                border-radius: 5px;
+                margin: 20px 0;
+            }
+            
+            .tags {
+                margin: 30px 0;
+            }
+            
+            .tag {
+                display: inline-block;
+                padding: 5px 15px;
+                background-color: #e3e6f3;
+                color: #088178;
+                border-radius: 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+            
+            .share-section {
+                margin-top: 50px;
+                padding-top: 30px;
+                border-top: 1px solid #e1e1e1;
+            }
+            
+            .share-section h3 {
+                margin-bottom: 15px;
+                color: #088178;
+            }
+            
+            .share-buttons i {
+                font-size: 24px;
+                margin-right: 15px;
+                color: #606063;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            
+            .share-buttons i:hover {
+                color: #088178;
+            }
+            
+            .related-posts {
+                margin-top: 60px;
+            }
+            
+            .related-posts h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .related-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .related-post {
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            
+            .related-post img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+            
+            .related-post-content {
+                padding: 15px;
+            }
+            
+            .related-post h4 {
+                margin-bottom: 10px;
+            }
+            
+            .related-post a {
+                color: #088178;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            .comments-section {
+                margin-top: 60px;
+            }
+            
+            .comments-section h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .comment {
+                margin-bottom: 30px;
+                border-bottom: 1px solid #e1e1e1;
+                padding-bottom: 20px;
+            }
+            
+            .comment-meta {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            
+            .comment-meta img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+            
+            .comment-author {
+                font-weight: bold;
+            }
+            
+            .comment-date {
+                color: #606063;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+            
+            .comment-content {
+                line-height: 1.6;
+            }
+            
+            .comment-form {
+                margin-top: 40px;
+            }
+            
+            .comment-form h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            
+            .form-group input, 
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+            }
+            
+            .form-group textarea {
+                height: 150px;
+            }
+            
+            .submit-btn {
+                background-color: #088178;
+                color: white;
+                border: none;
+                padding: 12px 25px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            
+            .submit-btn:hover {
+                background-color: #066e67;
+            }
+            
+            @media (max-width: 768px) {
+                .related-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .related-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <section id="header">
+            <div class="logo">
+                <i class="fas fa-hand-paper icon"></i>
+                <pre>The 
+Handmade
+Hub</pre>
+            </div>
+            <div>
+                <ul id="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../shop.html">Shop</a></li>
+                    <li><a class="active" href="../blog.html">Blog</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../cart.html"><i class="fas fa-bag-shopping"></i></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="blog-container">
+            <h1 class="blog-title">How Bamboo Clothing Is Changing the Fashion Industry, One Fiber at a Time</h1>
+            
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> April 5, 2025</span>
+                <span><i class="far fa-user"></i> By Hermoine Granger</span>
+            </div>
+            
+            <img src="../img/bamboo.jpg" alt="Bamboo Clothing" class="featured-image">
+            
+            <div class="blog-content">
+                <p>Bamboo clothing is revolutionizing the fashion industry with its perfect blend of comfort, sustainability, and style.Whether you're looking for loungewear, activewear, or everyday basics, bamboo clothing offers a luxurious feel with a minimal environmental footprint.</p>
+                
+                <h2>The Eco-Friendly Power of Bamboo</h2>
+                <p>Bamboo is one of the most sustainable plants on Earth. It grows rapidly without the need for pesticides, synthetic fertilizers, or excessive water. It also helps absorb carbon dioxide and releases more oxygen into the atmosphere compared to most trees. </p>
+                
+                <p>Bamboo clothing takes these environmental benefits a step further by transforming the raw plant into soft, wearable fabric with far less environmental impact than traditional textile production. Choosing bamboo means reducing your carbon footprint and supporting a greener planet.</p>
+                
+                <h2>Comfort You Can Feel: Why Bamboo Feels Better</h2>
+                <p>One of the standout qualities of bamboo clothing is its luxurious softness — often compared to silk or cashmere. The fabric is naturally breathable, temperature-regulating, and moisture-wicking, making it perfect for all-day wear.</p>
+                
+                <p>Whether you're active or relaxing, bamboo keeps you cool in the heat and warm in the cold. It's also incredibly gentle on sensitive skin, which makes it an excellent choice for people with allergies or skin conditions.</p>
+                
+                <h2>Health Benefits: Hypoallergenic and Antibacterial</h2>
+                <p>Bamboo fibers have natural antibacterial properties, which help reduce odor and keep clothes fresher for longer.Fewer washes, fewer chemicals, and better hygiene — all rolled into one.</p>
+                
+                <p> They're also hypoallergenic, meaning they won't irritate the skin or cause allergic reactions. This makes bamboo clothing ideal for babies, people with eczema, or anyone who prefers clean, chemical-free fabrics close to their body. </p>
+                
+                <h2>Style Meets Sustainability</h2>
+                <p>Bamboo clothing isn't just about comfort and eco-friendliness — it's stylish too. Brands are increasingly designing chic, modern apparel from bamboo fabric, including dresses, tees, yoga pants, underwear, and even business wear.</p>
+                
+                <p>The fabric drapes beautifully, holds dye well for vibrant colors, and is naturally resistant to wrinkles. So, you can look good, feel good, and do good for the environment — all at once.</p>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Sustainable Fashion</span>
+                <span class="tag">Handcrafted</span>
+                <span class="tag">Summer Style</span>
+                <span class="tag">Eco-friendly</span>
+                <span class="tag">Traditional Crafts</span>
+            </div>
+            
+            <div class="share-section">
+                <h3>Share This Article</h3>
+                <div class="share-buttons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-pinterest-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+            
+            <div class="related-posts">
+                <h3>You May Also Like</h3>
+                <div class="related-grid">
+                    <div class="related-post">
+                        <img src="../img/strawhat.jpg" alt="Handwoven Straw Hats">
+                        <div class="related-post-content">
+                            <h4>Handwoven Straw Hats</h4>
+                            <p>From Straw to Style: The Story Behind Handwoven Hats</p>
+                            <a href="strawhats_blog.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="../img/totebag.webp" alt="Handmade Jute Tote Bags">
+                        <div class="related-post-content">
+                            <h4>Handmade Jute Tote Bags</h4>
+                            <p>Crafting with Care: The Story Behind Your Handmade Tote Bag</p>
+                            <a href="jutebag_blog.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="../img/beeswax.jpg" alt="Beeswax Wraps">
+                        <div class="related-post-content">
+                            <h4>Beeswax Wraps</h4>
+                            <p>Say Goodbye to Plastic Wrap: Why Beeswax Wraps Are the Future</p>
+                            <a href="crwaxwraps.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comments-section">
+                <h3>Comments</h3>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Priya S</span>
+                        <span class="comment-date">April 10, 2025</span>
+                    </div>
+                    <p class="comment-content">I recently bought my first bamboo T-shirt, and I'm blown away by how soft and breathable it is. Didn't expect eco-friendly to feel this luxurious!</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">James K</span>
+                        <span class="comment-date">April 8, 2025</span>
+                    </div>
+                    <p class="comment-content">Great article! I had no idea bamboo clothing was naturally antibacterial. It's good to know there are healthier and more sustainable options out there.</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Ayesha M</span>
+                        <span class="comment-date">April 6, 2025</span>
+                    </div>
+                    <p class="comment-content">I love that bamboo clothing is both stylish and sustainable. It's great to support fashion that's kinder to the planet — and to my skin!</p>
+                </div>
+                
+                <div class="comment-form">
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up for our eco-friendly newsletter</h4>
+                <p>Get E-mail updates about our <span>latest offers and collections.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="../imh.png" alt="logo">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong>1234567890</p>
+                <p><strong>Phone:</strong>9876543210</p>
+                <p><strong>Hours:</strong>10am to 18pm</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="../about.html">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="../ta">Terms and conditions</a>
+                <a href="../contact.html">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="../signin.html">Sign in</a>
+                <a href="../cart.html">View cart</a>
+                <a href="#">Track my order</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From apple store or Google play</p>
+                <div class="row">
+                    <img src="../img/gplay.png" width="150" height="40" alt="img1">
+                    <img src="../img/appstore.png" width="150" height="40" alt="img2">
+                </div>
+                <p>Secure Payment Gateway</p>
+                <img src="../img/payment.jpg" width="350" height="60" alt="payment">
+            </div>
+
+            <div class="copyright" style="padding-left: 80px;">
+                <p>Copyright. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="./comment.js"></script>
+    </body>
+</html>

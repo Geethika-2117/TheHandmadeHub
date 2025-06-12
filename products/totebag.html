@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/totebag.webp" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Handmade Jute Tote Bag</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">This beautifully crafted Handmade Jute Tote Bag is a perfect blend of style and sustainability. Made from 100% natural jute, this eco-friendly bag is durable, lightweight, and versatile. It features a spacious interior to carry all your essentials, while the sturdy handles ensure comfort and ease when carrying. Whether you're heading to the beach, running errands, or shopping, this tote bag is a chic and environmentally conscious choice.</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Material:</span> 100% Natural Jute</li>
+                <li><span>Size:</span> 18 x 14 inches (L x H)</li>
+                <li><span>Handles:</span> Sturdy, eco-friendly cotton handles</li>
+                <li><span>Color:</span> Natural beige with accent stitching</li>
+                <li><span>Closure:</span> Open-top design for easy access</li>
+                <li><span>Eco-friendly:</span> Made with sustainable, biodegradable materials</li>
+                <li><span>Care Instructions:</span> Spot clean only</li>
+            </ul>
+            <h4 class="product-price">Price:₹349</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural Jute">Natural Jute</option>
+                        <option value="Dyed Jute">Dyed Jute</option>
+                        <option value="Embroidered">Embroidered</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Handmade Jute Tote Bag",
+                price: 349,
+                quantity: 1,
+                image: "../img/totebag.webp"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Handmade Jute Tote Bag",
+        price: 349,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/totebag.webp"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/steelstaw.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Stainless Steel Straws</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Say goodbye to plastic waste with our Stainless Steel Straws! Made from high-quality, food-grade stainless steel, these reusable straws are durable, rust-proof, and easy to clean. Perfect for smoothies, juices, and all your favorite drinks—sip sustainably!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Eco-Friendly & Reusable:</span> A sustainable alternative to plastic straws.</li>
+                <li><span>Durable & Rust-Proof:</span>Made from high-quality, food-grade stainless steel.</li>
+                <li><span>Safe & Non-Toxic :</span> BPA-free and free from harmful chemicals.</li>
+                <li><span>Easy to Clean:</span>Comes with a cleaning brush for hassle-free maintenance.</li>
+                <li><span>Versatile Use:</span>Suitable for hot and cold drinks, including smoothies and juices.</li>
+                <li><span>Portable & Lightweight :</span>Easy to carry in bags for on-the-go use.</li>
+                <li><span>Available in Various Styles :</span>Straight, bent, and wide straws for different drinks.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹199</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Classic Silver">Classic Silver</option>
+                        <option value="Gold ">Gold </option>
+                        <option value="Matte Black">Matte Black</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Stainless Steel Straws",
+                price: 199,
+                quantity: 1,
+                image: "../img/steelstaw.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Stainless Steel Straws",
+        price: 199,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/steelstaw.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

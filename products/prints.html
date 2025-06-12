@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/prints.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Botanical prints</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Botanical Prints are artistic representations of plants, flowers, and foliage, created using detailed illustrations or pressed plant techniques. They add a touch of nature to any space, blending vintage charm with modern aesthetics. Ideal for home decor, stationery, and gifts, these prints bring elegance and serenity to interiors!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Nature-Inspired Designs:</span>Features detailed illustrations or real plant imprints.</li>
+                <li><span>Aesthetic & Timeless :</span> Blends vintage charm with modern elegance.</li>
+                <li><span>High-Quality Materials:</span>Printed on premium paper, canvas, or fabric.</li>
+                <li><span>Eco-Friendly Options:</span>Available in sustainable and recycled materials.</li>
+                <li><span>Versatile Decor:</span>Ideal for home, office, or gallery wall arrangements.</li>
+                <li><span>Variety of Styles :</span>Includes watercolor, sketch, monochrome, and vibrant designs.</li>
+                <li><span>Customization Available:</span> Can be personalized with names, quotes, or specific plants.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹199 </h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value=" Florals"> Florals</option>
+                        <option value=" Pastels"> Pastels</option>
+                        <option value="Earthy Tones ">Earthy Tones </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Botanical prints",
+                price: 199,
+                quantity: 1,
+                image: "../img/prints.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Botanical prints",
+        price: 199,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/prints.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

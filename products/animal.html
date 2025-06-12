@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="../product.js"></script>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/animal.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Hand-sewn stuffed animals</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Hand-Sewn Stuffed Animals are lovingly crafted plush toys made from soft fabrics, stitched by hand for a unique, artisanal touch. These cuddly companions come in various shapes, sizes, and designs, making them perfect for children, collectors, and gift-giving. With durable stitching and eco-friendly stuffing, they offer a charming and sustainable alternative to mass-produced plush toys!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Handcrafted & Unique:</span>Each piece is carefully stitched, making every toy one of a kind.</li>
+                <li><span>Soft & Cuddly:</span>Made from plush, breathable, and skin-friendly fabrics.</li>
+                <li><span>Durable Stitching :</span>Strong hand-sewn seams ensure long-lasting quality.</li>
+                <li><span>Eco-Friendly Materials:</span>Often filled with natural cotton, recycled fiber, or organic stuffing.</li>
+                <li><span>Safe for All Ages :</span>Free from harmful chemicals, with child-safe embroidery or button details.</li>
+                <li><span>Customizable Designs:</span>Available in various animal shapes, colors, and sizes.</li>
+                <li><span>Perfect Gift Option:</span>Ideal for birthdays, baby showers, and collectors.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹1499</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value=" Neutrals">Neutrals</option>
+                        <option value=" Pastels"> Pastels</option>
+                        <option value="Bright Tones  ">Bright Tones </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+<script>
+document.getElementById("addToCartBtn").addEventListener("click", function () {
+    const product = {
+        name: "Hand-sewn stuffed animals",
+        price: 1499,
+        quantity: 1,
+        image: "../img/animal.jpg"
+    };
+
+    // Get existing cart or create a new one
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product already exists in cart
+    const existingIndex = cart.findIndex(item => item.name === product.name);
+    if (existingIndex >= 0) {
+        cart[existingIndex].quantity += 1;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart!");
+});
+
+function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Hand-sewn stuffed animals",
+        price: 1499,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/animal.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+</script>
+
+
+</body>
+</html>

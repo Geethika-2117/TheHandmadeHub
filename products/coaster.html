@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/coaster.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Hand-Painted Wooden Coasters</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Add a touch of elegance to your table with our Hand-Painted Wooden Coasters! Crafted from high-quality wood and adorned with intricate, hand-painted designs, these coasters protect your surfaces while enhancing your decor. Perfect for gifting or personal use!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Hand-Painted Designs :</span> Unique, artistic patterns crafted by skilled artisans.</li>
+                <li><span>High-Quality Wood :</span>Durable and long-lasting, made from premium wood.</li>
+                <li><span>Protects Surfaces :</span> Prevents water rings and heat damage on tables.</li>
+                <li><span>Eco-Friendly & Sustainable :</span>Made from natural, biodegradable materials.</li>
+                <li><span>Lightweight & Compact  :</span>Easy to store and use for any occasion.</li>
+                <li><span>Versatile Use  :</span>Ideal for coffee tables, dining areas, and office desks.</li>
+                <li><span>Perfect for Gifting :</span>A thoughtful, handmade gift for any occasion.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹249</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Traditional Art Styles">Traditional Art Styles</option>
+                        <option value="Floral & Nature-Inspired ">Floral & Nature-Inspired </option>
+                        <option value="Minimalist & Modern ">Minimalist & Modern </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Hand-Painted Wooden Coasters",
+                price: 249,
+                quantity: 1,
+                image: "../img/coaster.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Hand-Painted Wooden Coasters",
+        price: 249,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/coaster.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/mats.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Handmade desk mats</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Handmade Desk Mats are artisanal workspace accessories crafted with care using high-quality materials like cork, leather, felt, or fabric. These mats not only protect your desk surface but also add a personalized, elegant touch to your workspace while improving mouse and writing performance!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Premium Craftsmanship:</span>Each mat is hand-stitched or hand-cut for a unique, artisanal finish.</li>
+                <li><span>Durable Materials:</span>Made from eco-friendly cork, genuine leather, felt, or upcycled fabric for long-lasting use.</li>
+                <li><span>Non-Slip Base:</span>Designed to stay firmly in place during writing or computer work. </li>
+                <li><span>Water-Resistant Surface:</span>Protects against spills and stains for easier maintenance.</li>
+                <li><span>Multi-Functional Use:</span>Acts as a writing pad, mouse pad, and surface protector.</li>
+                <li><span>Customizable Sizes:</span>Available in standard, compact, and extended sizes to suit various desk setups.</li>
+                <li><span>Aesthetic Appeal:</span>Available in minimalistic, rustic, or colorful handmade designs to complement different workspaces.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹299 </h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Earth tones">Earth tones</option>
+                        <option value="Pastels">Pastels</option>
+                        <option value="Bold colors">Bold colors</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Handmade desk mats",
+                price: 299,
+                quantity: 1,
+                image: "../img/mats.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Handmade desk mats",
+        price: 299,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/mats.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

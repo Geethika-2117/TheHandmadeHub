@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Easter Baskets - The Handmade Hub</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            h2 {
+                font-size:30px;
+            }
+            .blog-container {
+                max-width: 1200px;
+                margin: 50px auto;
+                padding: 0 20px;
+            }
+            
+            .blog-title {
+                font-size: 32px;
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .blog-meta {
+                display: flex;
+                margin-bottom: 30px;
+                color: #606063;
+                font-size: 14px;
+            }
+            
+            .blog-meta span {
+                margin-right: 20px;
+            }
+            
+            .blog-meta i {
+                margin-right: 5px;
+            }
+            
+            .featured-image {
+                width: 50%;
+                height: 400px;
+                object-fit: cover;
+                margin-bottom: 30px;
+                border-radius: 5px;
+                margin-left: 300px;
+            }
+            
+            .blog-content {
+                line-height: 1.8;
+                color: #1a1a1a;
+                margin-bottom: 40px;
+            }
+            
+            .blog-content p {
+                margin-bottom: 20px;
+            }
+            
+            .blog-content h2 {
+                margin: 30px 0 15px;
+                color: #088178;
+            }
+            
+            .blog-content img {
+                max-width: 100%;
+                border-radius: 5px;
+                margin: 20px 0;
+            }
+            
+            .tags {
+                margin: 30px 0;
+            }
+            
+            .tag {
+                display: inline-block;
+                padding: 5px 15px;
+                background-color: #e3e6f3;
+                color: #088178;
+                border-radius: 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+            
+            .share-section {
+                margin-top: 50px;
+                padding-top: 30px;
+                border-top: 1px solid #e1e1e1;
+            }
+            
+            .share-section h3 {
+                margin-bottom: 15px;
+                color: #088178;
+            }
+            
+            .share-buttons i {
+                font-size: 24px;
+                margin-right: 15px;
+                color: #606063;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            
+            .share-buttons i:hover {
+                color: #088178;
+            }
+            
+            .related-posts {
+                margin-top: 60px;
+            }
+            
+            .related-posts h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .related-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .related-post {
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            
+            .related-post img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+            
+            .related-post-content {
+                padding: 15px;
+            }
+            
+            .related-post h4 {
+                margin-bottom: 10px;
+            }
+            
+            .related-post a {
+                color: #088178;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            .comments-section {
+                margin-top: 60px;
+            }
+            
+            .comments-section h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .comment {
+                margin-bottom: 30px;
+                border-bottom: 1px solid #e1e1e1;
+                padding-bottom: 20px;
+            }
+            
+            .comment-meta {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            
+            .comment-meta img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+            
+            .comment-author {
+                font-weight: bold;
+            }
+            
+            .comment-date {
+                color: #606063;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+            
+            .comment-content {
+                line-height: 1.6;
+            }
+            
+            .comment-form {
+                margin-top: 40px;
+            }
+            
+            .comment-form h3 {
+                margin-bottom: 20px;
+                color: #088178;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            
+            .form-group input, 
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+            }
+            
+            .form-group textarea {
+                height: 150px;
+            }
+            
+            .submit-btn {
+                background-color: #088178;
+                color: white;
+                border: none;
+                padding: 12px 25px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            
+            .submit-btn:hover {
+                background-color: #066e67;
+            }
+            
+            @media (max-width: 768px) {
+                .related-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .related-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <section id="header">
+            <div class="logo">
+                <i class="fas fa-hand-paper icon"></i>
+                <pre>The 
+Handmade
+Hub</pre>
+            </div>
+            <div>
+                <ul id="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../shop.html">Shop</a></li>
+                    <li><a class="active" href="../blog.html">Blog</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../cart.html"><i class="fas fa-bag-shopping"></i></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="blog-container">
+            <h1 class="blog-title">How to Build the Perfect Easter Basket: Tips & Inspiration</h1>
+            
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i>April 15, 2024</span>
+                <span><i class="far fa-user"></i> By Simpson Smith</span>
+            </div>
+            
+            <img src="../img/easter.jpg" alt="Easter Baskets" class="featured-image">
+            
+            <div class="blog-content">
+                <p>Easter baskets are a beloved tradition that bring smiles to children and adults alike. Whether filled with chocolate eggs, handmade crafts, or thoughtful surprises, these baskets are a fun way to celebrate the season. Today, Easter baskets go beyond just candy—they're a chance to personalize gifts, create memories, and even include eco-friendly or non-traditional items. Let's explore some creative ways to build Easter baskets that are thoughtful, festive, and full of cheer.</p>
+                
+                <h2>Classic Treats with a Twist</h2>
+                <p>You can never go wrong with traditional Easter goodies—think chocolate bunnies, jellybeans, and marshmallow chicks.</p>
+                
+                <p>But why not elevate them with homemade treats or themed packaging? Consider wrapping candies in pastel fabric or adding hand-painted eggs for a more personal, crafty touch.</p>
+                
+                <h2>Non-Candy Basket Fillers</h2>
+                <p>For parents who want to cut back on sugar, there are tons of fun alternatives. Small toys, puzzles, books, art supplies, and even garden kits make excellent Easter basket stuffers.</p>
+                
+                <p>These items keep kids engaged long after the candy is gone, and they promote learning and creativity too.</p>
+                
+                <h2>DIY & Eco-Friendly Baskets</h2> 
+                <p>Make your Easter celebration more sustainable by using reusable containers like cloth totes, woven baskets, or even mason jars.</p>
+
+                <p>Fill them with natural goodies, handmade items, or second-hand treasures. It's a great way to teach kids about mindful gifting and eco-conscious habits.</p>
+                
+                <h2>Easter Baskets for Adults</h2>
+                <p>Who says Easter baskets are just for kids? Surprise a friend, partner, or parent with a thoughtful basket filled with gourmet snacks, self-care items, candles, or coffee blends.</p>
+                
+                <p> Adult Easter baskets are a fun way to show appreciation and bring a little springtime joy to your loved ones.</p>
+            </div>
+            
+            <div class="tags">
+                <span class="tag">Sustainable Fashion</span>
+                <span class="tag">Handcrafted</span>
+                <span class="tag">Summer Style</span>
+                <span class="tag">Eco-friendly</span>
+                <span class="tag">Traditional Crafts</span>
+            </div>
+            
+            <div class="share-section">
+                <h3>Share This Article</h3>
+                <div class="share-buttons">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-pinterest-square"></i>
+                    <i class="fab fa-instagram-square"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+            
+            <div class="related-posts">
+                <h3>You May Also Like</h3>
+                <div class="related-grid">
+                    <div class="related-post">
+                        <img src="../img/strawhat.jpg" alt="Handwoven Straw Hats">
+                        <div class="related-post-content">
+                            <h4>Handwoven Straw Hats</h4>
+                            <p>From Straw to Style: The Story Behind Handwoven Hats</p>
+                            <a href="strawhats_blog.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="../img/totebag.webp" alt="Handmade Jute Tote Bags">
+                        <div class="related-post-content">
+                            <h4>Handmade Jute Tote Bags</h4>
+                            <p>Crafting with Care: The Story Behind Your Handmade Tote Bag</p>
+                            <a href="jutebag_blog.html">Read More</a>
+                        </div>
+                    </div>
+                    <div class="related-post">
+                        <img src="../img/bamboo.jpg" alt="Bamboo Clothing">
+                        <div class="related-post-content">
+                            <h4>Bamboo Clothing</h4>
+                            <p>How Bamboo Clothing Is Changing the Fashion Industry, One Fiber at a Time</p>
+                            <a href="clothing_blog.html">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comments-section">
+                <h3>Comments</h3>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Olivia R</span>
+                        <span class="comment-date">April 25, 2024</span>
+                    </div>
+                    <p class="comment-content">I love the idea of eco-friendly baskets! I'm definitely trying reusable totes this year instead of plastic. Thanks for the inspiration!</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">James P</span>
+                        <span class="comment-date">April 21, 2024</span>
+                    </div>
+                    <p class="comment-content">Never thought about doing Easter baskets for adults—what a fun idea! I'm already planning one for my wife with her favorite tea and skincare.</p>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-meta">
+                        <span class="comment-author">Anika D</span>
+                        <span class="comment-date">April 17, 2024</span>
+                    </div>
+                    <p class="comment-content">Great mix of ideas! I've been looking for non-candy options for my kids, and the art supplies suggestion is perfect. Super helpful post!</p>
+                </div>
+                
+                <div class="comment-form">
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up for our eco-friendly newsletter</h4>
+                <p>Get E-mail updates about our <span>latest offers and collections.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="../imh.png" alt="logo">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong>1234567890</p>
+                <p><strong>Phone:</strong>9876543210</p>
+                <p><strong>Hours:</strong>10am to 18pm</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="../about.html">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="../ta">Terms and conditions</a>
+                <a href="../contact.html">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="../signin.html">Sign in</a>
+                <a href="../cart.html">View cart</a>
+                <a href="#">Track my order</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From apple store or Google play</p>
+                <div class="row">
+                    <img src="../img/gplay.png" width="150" height="40" alt="img1">
+                    <img src="../img/appstore.png" width="150" height="40" alt="img2">
+                </div>
+                <p>Secure Payment Gateway</p>
+                <img src="../img/payment.jpg" width="350" height="60" alt="payment">
+            </div>
+
+            <div class="copyright" style="padding-left: 80px;">
+                <p>Copyright. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="./comment.js"></script>
+    </body>
+</html>

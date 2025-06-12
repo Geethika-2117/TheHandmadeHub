@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmation - The Handmade Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="page-header" class="cart-header">
+    <h2>#ThankYou</h2>
+    <p>Your order has been placed successfully</p>
+  </section>
+
+  <section class="section-p1" style="text-align: center;">
+    <h2>Thank you for shopping with us!</h2>
+    <p>Your handmade items are on the way 🎁</p>
+
+    <div id="orderDetails" style="margin: 20px auto; max-width: 600px; text-align: left;"></div>
+
+    <a href="index.html" class="normal" style="margin-top: 20px; display: inline-block;">Back to Home</a>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const summary = JSON.parse(localStorage.getItem("checkoutSummary"));
+      const container = document.getElementById("orderDetails");
+
+      if (!summary) {
+        container.innerHTML = "<p>No order found.</p>";
+        return;
+      }
+
+      let html = `
+        <h3>Order Summary:</h3>
+        <ul style="list-style: none; padding-left: 0;">
+      `;
+
+      summary.cart.forEach(item => {
+        html += `
+          <li>
+            ${item.name} x ${item.quantity} = ₹${item.price * item.quantity}
+          </li>
+        `;
+      });
+
+      html += `
+        </ul>
+        <p><strong>Subtotal:</strong> ₹${summary.subtotal}</p>
+        <p><strong>Discount:</strong> ₹${summary.discount}</p>
+        <p><strong>Total:</strong> ₹${summary.total}</p>
+      `;
+
+      container.innerHTML = html;
+
+      // Clear localStorage cart data
+      localStorage.removeItem("cart");
+      localStorage.removeItem("checkoutSummary");
+    });

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/combs.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Eco-Friendly Combs </h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Switch to Eco-Friendly Combs, crafted from sustainable materials like bamboo, neem wood, or recycled plastic. Designed for smooth, tangle-free grooming, these combs reduce static, promote scalp health, and are completely biodegradable. A perfect blend of nature and care!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Sustainable Material  :</span>Made from bamboo, neem wood, or recycled plastic.</li>
+                <li><span> Eco-Friendly & Biodegradable :</span>Reduces plastic waste and promotes sustainability.</li>
+                <li><span>Gentle on Hair & Scalp :</span> Smooth edges prevent breakage and irritation.</li>
+                <li><span>Anti-Static & Frizz-Free:</span>Reduces static buildup for a smoother grooming experience.</li>
+                <li><span>Naturally Antibacterial :</span>Neem wood combs help maintain scalp hygiene.</li>
+                <li><span>Lightweight & Durable:</span>Sturdy yet easy to carry for everyday use.</li>
+                <li><span>Suitable for All Hair Types:</span>Works well for curly, straight, and wavy hair.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹99 </h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural Wood">Natural Wood</option>
+                        <option value="Bamboo ">Bamboo  </option>
+                        <option value="Hand-Painted">Hand-Painted </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Eco-Friendly Combs",
+                price: 99,
+                quantity: 1,
+                image: "../img/combs.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+        
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Eco-Friendly Combs",
+        price: 99,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/combs.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

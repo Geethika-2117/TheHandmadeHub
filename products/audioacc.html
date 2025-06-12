@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/audioacc.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Compostable audio accessories</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Experience high-quality sound with our Compostable Audio Accessories, designed from biodegradable materials like bamboo, wood, and plant-based bioplastics. These eco-friendly earphones, headphones, and speakers offer durability, style, and sustainability—perfect for guilt-free listening! </p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Eco-Friendly & Biodegradable:</span> Made from bamboo, wood, and plant-based bioplastics.</li>
+                <li><span>High-Quality Sound :</span>Delivers clear, crisp audio without compromising performance.</li>
+                <li><span>Lightweight & Durable:</span> Designed for everyday use with sustainable materials.</li>
+                <li><span>Compostable & Plastic-Free:</span>Reduces electronic waste and supports a greener planet.</li>
+                <li><span>Ergonomic & Comfortable:</span>Soft, natural ear tips and lightweight design for extended wear.</li>
+                <li><span>Universal Compatibility:</span>Works with most smartphones, tablets, and laptops.</li>
+                <li><span>Stylish & Natural Finish :</span>Aesthetic wooden or bamboo textures for a unique look.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹1999</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural Wood ">Natural Wood </option>
+                        <option value="Earthy Tones">Earthy Tones </option>
+                        <option value="Minimalist Black">Minimalist Black</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Compostable audio accessories",
+                price: 1999,
+                quantity: 1,
+                image: "../img/audioacc.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Compostable audio accessories",
+        price: 1999,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/audioacc.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

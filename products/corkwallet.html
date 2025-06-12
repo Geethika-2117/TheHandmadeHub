@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/wallet.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Cork Wallets</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Cork Wallets are crafted from natural cork fabric, offering a lightweight, water-resistant, and eco-friendly alternative to traditional leather. With a smooth texture and minimalist design, these wallets are perfect for conscious consumers who value both form and function. Durable and vegan, they make an ideal accessory for everyday use!</p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Eco-Friendly Material:</span>Made from sustainably harvested cork, a renewable and biodegradable resource. </li>
+                <li><span>Lightweight & Durable:</span>Soft yet sturdy, offering excellent durability for daily use.</li>
+                <li><span>Water-Resistant :</span>Naturally resistant to moisture and stains, keeping contents safe.</li>
+                <li><span>Vegan & Cruelty-Free :</span>A stylish alternative to leather with zero animal products used.</li>
+                <li><span>Compact & Functional Design:</span> includes multiple card slots, a bill section, and coin pocket options.</li>
+                <li><span>Unique Natural Texture:</span>Each wallet has a distinct cork grain pattern, making every piece one-of-a-kind.</li>
+                <li><span>Hypoallergenic & Antimicrobial :</span>Safe for sensitive skin and resists bacteria and odor buildup.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹499</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural">Natural</option>
+                        <option value="Pastels">Pastels</option>
+                        <option value="Bold colors">Bold colors</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Cork Wallets",
+                price: 499,
+                quantity: 1,
+                image: "../img/wallet.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Cork Wallets",
+        price: 499,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/wallet.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

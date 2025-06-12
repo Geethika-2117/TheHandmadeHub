@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/organicsoap.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Handmade Organic Soap Bars</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description"> Our Handmade Organic Soap Bars are crafted with natural oils, butters, and botanical extracts to cleanse, hydrate, and refresh your skin. Free from harsh chemicals and artificial additives, these eco-friendly soaps create a rich, creamy lather for a luxurious bathing experience. Gentle on all skin types, they leave your skin soft, smooth, and naturally scented.<b>Experience the beauty of pure, handcrafted skincare!.</b></p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>100% Natural & Organic:</span>Made with pure oils, butters, and botanical extracts./li>
+                <li><span>Chemical-Free:</span>No artificial fragrances, parabens, or harsh additives.</li>
+                <li><span>Gentle & Nourishing:</span>Hydrates and soothes all skin types, including sensitive skin.</li>
+                <li><span>Rich, Creamy Lather:</span>Provides a luxurious and refreshing cleansing experience.</li>
+                <li><span>Eco-Friendly & Sustainable:</span>Biodegradable ingredients with minimal environmental impact.</li>
+                <li><span>Handcrafted with Care:</span>Each bar is artisan-made for quality and uniqueness.</li>
+                <li><span>Naturally Scented:</span>Infused with essential oils for a soothing, refreshing aroma.</li>
+            </ul>
+            <h4 class="product-price">Price:₹149</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="Small Bars">Small Bars</option>
+                        <option value="Medium Bars">Medium Bars</option>
+                        <option value="Medium Bars">Medium Bars</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="White">White</option>
+                        <option value="Beige">Beige</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Handmade Organic Soap Bars",
+                price: 149,
+                quantity: 1,
+                image: "../img/organicsoap.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Handmade Organic Soap Bars",
+        price: 149,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/organicsoap.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

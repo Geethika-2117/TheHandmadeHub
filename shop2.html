@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Handmade Hub</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <div class="logo">
+            <i class="fas fa-hand-paper icon"></i>
+            <pre>The 
+Handmade
+Hub</pre>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fas fa-bag-shopping"></i></a></li>
+            </ul>
+        </div>
+        </section>
+        <section id="page-header">
+           
+            <h2 >#stayhome</h2>
+            
+            <p >Save more with coupons and up to 70% off</p>
+            
+        </section>
+
+        
+
+        <section id="product1" class="section-p1">
+            
+            <div class="pro-container">
+                <div class="pro">
+                    <a href="./products/shampoo.html">
+                    <img src="./img/shampoo.jpg" alt="Shampoo">
+                    </a>
+                    <div class="des">
+                        <span>WildRoots Creations</span>
+                        <h5>Natural Shampoo</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹399</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Natural Shampoo', 399, './img/shampoo.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/beeswax.html">
+                    <img src="./img/beeswax.jpg" alt="beeswax straps">
+                    </a>
+                    <div class="des">
+                        <span>WildRoots Creations</span>
+                        <h5>Beeswax Wraps</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹349</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Beeswax Wraps', 349, './img/beeswax.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/candle.html">
+                    <img src="./img/candle.jpg" alt="candle">
+                    </a>
+                    <div class="des">
+                        <span>WildRoots Creations</span>
+                        <h5>Coconut wax candles</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹199</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Coconut wax candles', 199, './img/candle.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/glassvase.html">
+                    <img src="./img/glassvase.jpg" alt="glass vase">
+                    </a>
+                    <div class="des">
+                        <span>WildRoots Creations</span>
+                        <h5>Recycled Glass Vases</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹2499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Recycled Glass Vases', 2499, './img/glassvase.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/chrochet.html">
+                    <img src="./img/chrochet.jpg" alt="Crochet">
+                    </a>
+                    <div class="des">
+                        <span>Handmade Harmony</span>
+                        <h5>Crochet</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Crochet', 499, './img/chrochet.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/woolscarves.html">
+                    <img src="./img/woolscarves.jpg" alt="wool scarves">
+                    </a>
+                    <div class="des">
+                        <span>Handmade Harmony</span>
+                        <h5>Wool Scarves</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wool Scarves', 499, './img/woolscarves.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/animal.html">
+                    <img src="./img/animal.jpg" alt="animal">
+                    </a>
+                    <div class="des">
+                        <span>Handmade Harmony</span>
+                        <h5>Hand-sewn Stuffed Animals</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹1499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Hand-sewn Stuffed Animals', 1499, './img/animal.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/cushion.html">
+                    <img src="./img/cushion.jpg" alt="cushion">
+                    </a>
+                    <div class="des">
+                        <span>Handmade Harmony</span>
+                        <h5>Decorative Cushion Covers</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹149</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Decorative Cushion Covers', 149, './img/cushion.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/hairoil.html">
+                    <img src="./img/hairoil.jpg" alt="hair oil">
+                    </a>
+                    <div class="des">
+                        <span>PureLeaf Creations</span>
+                        <h5>Hair Soothning Oil</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹249</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Hair Soothning Oil', 249, './img/hairoil.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/claypottery.html">
+                    <img src="./img/claypottery.jpg" alt="clay pottery">
+                    </a>
+                    <div class="des">
+                        <span>PureLeaf Creations</span>
+                        <h5>Clay Pottery</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹599</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Clay Pottery', 599, './img/claypottery.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/corkwallet.html">
+                    <img src="./img/wallet.jpg" alt="Cork Wallets">
+                    </a>
+                    <div class="des">
+                        <span>PureLeaf Creations</span>
+                        <h5>Cork Wallets</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹499</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Cork Wallets', 499, './img/wallet.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/candleholders.html">
+                    <img src="./img/candleholder.jpg" alt="wood Candle Holders">
+                    </a>
+                    <div class="des">
+                        <span>PureLeaf Creations</span>
+                        <h5>Wood Candle Holders</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹149</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Wood Candle Holders', 149, './img/candleholder.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+
+                <div class="pro">
+                    <a href="./products/kajal.html">
+                    <img src="./img/kajal.jpg" alt="Kajal">
+                    </a>
+                    <div class="des">
+                        <span>Soothe & Balm</span>
+                        <h5>Kajal</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹99</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Kajal', 99, './img/kajal.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/lipbalm.html">
+                    <img src="./img/lipbalm.jpg" alt="lip balm">
+                    </a>
+                    <div class="des">
+                        <span>Soothe & Balm</span>
+                        <h5>Handmade Lip Balms</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹249</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Handmade Lip Balms', 249, './img/lipbalm.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/earings.html">
+                    <img src="./img/earings.jpg" alt="earings">
+                    </a>
+                    <div class="des">
+                        <span>Soothe & Balm</span>
+                        <h5>Polymer clay Earings</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹149</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Polymer clay Earings', 149, './img/earings.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="pro">
+                    <a href="./products/foodbags.html">
+                    <img src="./img/siliconbag.jpg" alt="Reusable Silicone Food Bags">
+                    </a>
+                    <div class="des">
+                        <span>Soothe & Balm</span>
+                        <h5>Reusable Silicone Food Bags</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>₹149</h4>
+                    </div>
+                    <a href="#" class="cart" onclick="addToCart(event, 'Reusable Silicone Food Bags', 149, './img/siliconbag.jpg')"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </section>
+        <section id="pagination" class="section-p1" >
+            <a href="shop.html">1</a>
+            <a href="#">2</a>
+            <a href="shop3.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+
+        </section>
+
+        
+        
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up for our eco-friendly newsletter</h4>
+                <p>Get E-mail updates about our <span>latest offers and collections.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong>Amrita Vishwa Vidyapeetham</p>
+                <p><strong>Phone:</strong>9876543210</p>
+                <p><strong>Hours:</strong>10am to 18pm</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My account</h4>
+                <a href="cart.html">View cart</a>
+                <a href="tandc.html">Terms and conditions</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From apple store or Google play</p>
+                <div class="row">
+                    <img src="./img/gplay.png" width="150" height="40" alt="img1">
+                    <img src="./img/appstore.png" width="150" height="40" alt="img2">
+                </div>
+                <p>Secure Payment Gateway</p>
+                <img src="./img/payment.jpg" width="350" height="60" alt="payment">
+            </div>
+
+            <div class="copyright" style="padding-left: 80px;">
+                <p>Copyright.All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+function addToCart(event, name, price, image) {
+    event.preventDefault(); // ⛔ prevent scroll to top
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = cart.find(item => item.name === name);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Added to cart!");
+    updateCartCount();
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const countBadge = document.querySelector(".cart-count");
+    if (countBadge) {
+        countBadge.textContent = count;
+        countBadge.style.display = count > 0 ? "inline-block" : "none";
+    }
+}
+
+window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+
+    </body>
+</html>

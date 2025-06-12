@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/perfume.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Handcrafted Perfume</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Experience the luxury of Handcrafted Perfume, made with natural essential oils and aromatic blends. Free from harsh chemicals, these unique fragrances offer a refreshing and long-lasting scent, perfect for daily wear or special occasions. Elevate your senses with every spritz! </p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Natural Ingredients :</span> Made with essential oils and botanical extracts.</li>
+                <li><span>Alcohol-Free & Chemical-Free :</span>Gentle on the skin with no harsh additives.</li>
+                <li><span>Long-Lasting Fragrance :</span> Stays fresh for hours without fading.</li>
+                <li><span>Unique & Handcrafted Blends:</span>Exclusive scents created in small batches.</li>
+                <li><span>Eco-Friendly Packaging  :</span>Sustainable and plastic-free options available. </li>
+                <li><span>Suitable for All Skin Types :</span>Non-irritating and safe for sensitive skin.</li>
+                <li><span>Perfect for Gifting :</span>Luxurious and artisanal, ideal for special occasions.</li>
+            </ul>
+            <h4 class="product-price">Price: ₹799</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Transparent ">Transparent </option>
+                        <option value="Amber">Amber</option>
+                        <option value="Vintage">Vintage </option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Handcrafted Perfume",
+                price: 799,
+                quantity: 1,
+                image: "../img/perfume.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Handcrafted Perfume",
+        price: 799,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/perfume.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>

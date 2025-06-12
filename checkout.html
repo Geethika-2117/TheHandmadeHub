@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout - The Handmade Hub</title>
+    <link rel="stylesheet" href="stylepage.css" />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <section id="page-header" class="cart-header">
+        <h2>#SecureCheckout</h2>
+        <p>Complete your purchase with confidence</p>
+    </section>
+
+    <!-- Checkout Content -->
+    <section id="checkout" class="section-p1">
+        <div id="orderSummary" style="margin-bottom: 40px;"></div>
+
+        <form id="checkoutForm" class="checkout-form">
+    <h3>Shipping Details</h3>
+    <div class="form-group">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="text" placeholder="Shipping Address" required />
+        <input type="text" placeholder="City" required />
+        <input type="text" placeholder="State" required />
+        <input type="text" placeholder="Pin Code" required />
+        <input type="tel" placeholder="Phone Number" required />
+    </div>
+
+    <h3>Payment Method</h3>
+    <select id="paymentMethod" required>
+        <option value="">Select Payment Option</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="upi">UPI</option>
+    </select>
+
+    <div id="paymentDetails"></div>
+
+    <button type="submit" class="normal">Place Order</button>
+</form>
+
+    </section>
+
+    <!-- Optional Footer -->
+    <footer class="section-p1">
+        <p>&copy; 2025 The Handmade Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- Script to Load Order Summary and Handle Checkout -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const summary = JSON.parse(localStorage.getItem("checkoutSummary"));
+            const summaryDiv = document.getElementById("orderSummary");
+
+            if (!summary || !summary.cart.length) {
+                summaryDiv.innerHTML = `<p>Your cart is empty. <a href="shop.html">Go back to shop.</a></p>`;
+                document.getElementById("checkoutForm").style.display = "none";
+                return;
+            }
+
+            let summaryHTML = `
+                <h3>Order Summary</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Product</th>
+                            <th>Qty</th>
+                            <th style="text-align:right;">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            summary.cart.forEach(item => {
+                summaryHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td style="text-align:center;">${item.quantity}</td>
+                        <td style="text-align:right;">₹${item.price * item.quantity}</td>
+                    </tr>
+                `;
+            });
+
+            summaryHTML += `
+                    </tbody>
+                </table>
+                <div style="margin-top: 20px;">
+                    <p><strong>Subtotal:</strong> ₹${summary.subtotal}</p>
+                    <p><strong>Discount:</strong> ₹${summary.discount}</p>
+                    <p><strong>Total:</strong> ₹${summary.total}</p>
+                </div>
+                <hr>
+            `;
+
+            summaryDiv.innerHTML = summaryHTML;
+        });
+
+        // Dynamic payment details fields
+        document.getElementById("paymentMethod").addEventListener("change", function () {
+            const method = this.value;
+            const container = document.getElementById("paymentDetails");
+            container.innerHTML = ""; // Clear previous content
+
+            if (method === "card") {
+                container.innerHTML = `
+                    <input type="text" placeholder="Cardholder Name" required />
+                    <input type="text" placeholder="Card Number" pattern="\\d{16}" title="Enter 16 digit card number" required />
+                    <input type="text" placeholder="Expiry Date (MM/YY)" pattern="\\d{2}/\\d{2}" title="Format MM/YY" required />
+                    <input type="text" placeholder="CVV" pattern="\\d{3}" title="3 digit CVV" required />
+                `;
+            } else if (method === "upi") {
+                container.innerHTML = `
+                    <input type="text" placeholder="Enter UPI ID (e.g., name@bank)" required />
+                    <small>Supported UPI apps: Google Pay, PhonePe, Paytm</small>
+                `;
+            }
+            // For COD no extra fields needed
+        });
+
+        // Handle form submission
+        document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            // You can add validations or process the payment info here before redirecting
+            window.location.href = "order-confirmation.html";
+        });
+    </script>
+
+</body>
+</html>

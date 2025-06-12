@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <div id="page-header" class="product-header">
+        <h2>Discover the Craft Behind Our Products</h2>
+        <p>A Perfect Blend of Sustainability and Style - Learn More</p>
+    </div>
+
+    <!-- Product Details Section -->
+    <div id="prodetails" class="product-details-container">
+        <!-- Product Image -->
+        <div class="single-pro-image">
+            <img id="main-img" src="../img/beeswax.jpg" alt="Product Image">
+        </div>
+
+        <!-- Product Details -->
+        <div class="single-pro-details">
+            <h2 style="font-family: 'Roboto', sans-serif; text-transform: uppercase; color:  #088178;">Beeswax Wraps</h2>
+            <h3 class="product-title">Product Description:</h3>
+            <p class="product-description">Ditch plastic and keep your food fresh with our Beeswax Wraps! Made from organic cotton infused with beeswax, jojoba oil, and tree resin, these eco-friendly wraps are reusable, biodegradable, and perfect for covering bowls, wrapping snacks, or storing leftovers. A sustainable way to keep your kitchen green! </p>
+            <h3 class="product-title">Product Features:</h3>
+            <ul class="product-description">
+                <li><span>Eco-Friendly & Reusable :</span>A sustainable alternative to plastic wrap.</li>
+                <li><span>Natural Ingredients:</span>Made from organic cotton, beeswax, jojoba oil, and tree resin.</li>
+                <li><span>Keeps Food Fresh :</span>Breathable and naturally antibacterial for longer-lasting freshness.</li>
+                <li><span>Versatile Use:</span>Perfect for wrapping fruits, veggies, snacks, and covering bowls.</li>
+                <li><span>Easy to Clean:</span>Simply wash with cool water and mild soap for reuse.</li>
+                <li><span>Biodegradable & Compostable :</span>Breaks down naturally at the end of its life.</li>
+                <li><span>Durable & Flexible:</span>Molds to any shape with the warmth of your hands.</li>
+            </ul>
+            <h4 class="product-price">Price:₹349</h4>
+
+            <div class="product-options">
+                <div class="option">
+                    <label for="size" style="font-weight: bold;">Size:</label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="color" style="font-weight: bold;">Color:</label>
+                    <select id="color">
+                        <option value="Natural Golden Yellow">Natural Golden Yellow</option>
+                        <option value="Colored Beeswax">Colored Beeswax</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="product-actions">
+                <button class="normal" id="addToCartBtn">Add to Cart</button>
+                <button class="normal" style="background-color: #088178; color: #fff;" onclick="buyNow()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("addToCartBtn").addEventListener("click", function () {
+            const product = {
+                name: "Beeswax Wraps",
+                price: 349,
+                quantity: 1,
+                image: "../img/beeswax.jpg"
+            };
+        
+            // Get existing cart or create a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+            // Check if product already exists in cart
+            const existingIndex = cart.findIndex(item => item.name === product.name);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push(product);
+            }
+        
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
+
+        function buyNow() {
+    const selectedSize = document.getElementById("size").value;
+    const selectedColor = document.getElementById("color").value;
+
+    const product = {
+        name: "Beeswax Wraps",
+        price: 349,
+        quantity: 1,
+        size: selectedSize,
+        color: selectedColor,
+        image: "../img/beeswax.jpg"
+    };
+
+    const subtotal = product.price;
+    const discount = 0; // or apply your logic
+    const total = subtotal - discount;
+
+    const checkoutSummary = {
+        cart: [product],
+        subtotal,
+        discount,
+        total
+    };
+
+    localStorage.setItem("checkoutSummary", JSON.stringify(checkoutSummary));
+    window.location.href = "../checkout.html";
+}
+        </script>
+</body>
+</html>
