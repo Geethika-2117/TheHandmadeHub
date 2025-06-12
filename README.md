@@ -44,5 +44,4 @@ To run this project locally:
    ```bash
    git clone https://github.com/yourusername/project-uid.git
 
-   📬 Contact
 For any queries or feedback, feel free to reach out to vangalageethika@gmail.com
